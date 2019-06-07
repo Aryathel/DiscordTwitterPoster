@@ -51,7 +51,7 @@ for extension in extensions:
 async def on_ready():
     print('Logged in as {0} and connected to Discord! (ID: {0.id})\nConnected to Twitter with user {1}!'.format(bot.user, bot.api.me().name))
     if bot.show_game_status:
-        game = discord.Game(name = bot.game_to_show)
+        game = discord.Game(name = bot.game_to_show.format(prefix = bot.prefix))
         await bot.change_presence(activity = game)
     if bot.use_timestamp:
         embed = discord.Embed(
