@@ -60,5 +60,126 @@ class General(commands.Cog, name = "Twitter Success Cog"):
                         channel = self.bot.get_channel(log)
                         await channel.send(content = None, embed = embed)
 
+    @commands.command(name = 'twitter', help = "Shows info on a Twitter account based on either a mention of a twiter handle.")
+    @commands.guild_only()
+    async def twitter(self, ctx, *, twitter_to_search = None):
+        if twitter_to_search == None:
+            if self.bot.use_timestamp:
+                embed = discord.Embed(
+                    title = "Invalid Command",
+                    description = "You must include a Twitter handle in the command.",
+                    color = random.choice(self.bot.embed_colors),
+                    timestamp = datetime.datetime.now(datetime.timezone.utc)
+                )
+            else:
+                embed = discord.Embed(
+                    title = "Invalid Command",
+                    description = "You must include a Twitter handle in the command.",
+                    color = random.choice(self.bot.embed_colors)
+                )
+            if self.bot.show_command_author:
+                embed.set_author(
+                    name = ctx.author.name,
+                    icon_url = ctx.author.avatar_url
+                )
+            embed.set_footer(
+                text = self.bot.footer_text,
+                icon_url = self.bot.footer_icon
+            )
+            await ctx.send(embed = embed)
+        else:
+            results = self.bot.api.search_users(twitter_to_search, 1, 0)
+            if len(results) == 0:
+                if self.bot.use_timestamp:
+                    embed = discord.Embed(
+                        title = "Invalid Handle",
+                        description = "No results were found for this Twitter handle, please try again.",
+                        color = random.choice(self.bot.embed_colors),
+                        timestamp = datetime.datetime.now(datetime.timezone.utc)
+                    )
+                else:
+                    embed = discord.Embed(
+                        title = "Invalid Handle",
+                        description = "No results were found for this Twitter handle, please try again.",
+                        color = random.choice(self.bot.embed_colors)
+                    )
+                if self.bot.show_command_author:
+                    embed.set_author(
+                        name = ctx.author.name,
+                        icon_url = ctx.author.avatar_url
+                    )
+                embed.set_footer(
+                    text = self.bot.footer_text,
+                    icon_url = self.bot.footer_icon
+                )
+                await ctx.send(embed = embed)
+            else:
+                result = results[0]
+                if self.bot.use_timestamp:
+                    embed = discord.Embed(
+                        title = result.name,
+                        description = result.description,
+                        url = "https://twitter.com/" + result.screen_name,
+                        color = random.choice(self.bot.embed_colors),
+                        timestamp = datetime.datetime.now(datetime.timezone.utc)
+                    )
+                else:
+                    embed = discord.Embed(
+                        title = result.name,
+                        description = result.description,
+                        url = "https://twitter.com/" + result.screen_name,
+                        color = random.choice(self.bot.embed_colors)
+                    )
+                if self.bot.show_command_author:
+                    embed.set_author(
+                        name = ctx.author.name,
+                        icon_url = ctx.author.avatar_url
+                    )
+                embed.add_field(
+                    name = "Private",
+                    value = str(result.protected),
+                    inline = True
+                )
+                embed.add_field(
+                    name = "Followers",
+                    value = result.followers_count,
+                    inline = True
+                )
+                embed.add_field(
+                    name = "Friends",
+                    value = result.friends_count,
+                    inline = True
+                )
+                embed.add_field(
+                    name = "Posts",
+                    value = result.statuses_count,
+                    inline = True
+                )
+                embed.add_field(
+                    name = "Language",
+                    value = result.lang,
+                    inline = True
+                )
+                embed.add_field(
+                    name = "Created",
+                    value = result.created_at.strftime("%B %d, %Y, %r"),
+                    inline = False
+                )
+                try:
+                    embed.set_thumbnail(
+                        url = result.profile_image_url_https
+                    )
+                except:
+                    pass
+
+                embed.set_footer(
+                    text = self.bot.footer_text,
+                    icon_url = self.bot.footer_icon
+                )
+
+                await ctx.send(embed = embed)
+
+
+
 def setup(bot):
     bot.add_cog(General(bot))

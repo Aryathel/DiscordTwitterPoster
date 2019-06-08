@@ -96,6 +96,11 @@ async def dfs_help(ctx):
             icon_url = ctx.author.avatar_url
         )
     embed.add_field(
+        name = bot.prefix + "twitter",
+        value = "Shows information on a Twitter account given their @.\nEXAMPLE: `!twitter HeroicosH`",
+        inline = False
+    )
+    embed.add_field(
         name = bot.prefix + "uptime",
         value = "Returns the amount of time that the bot has been online.",
         inline = False
