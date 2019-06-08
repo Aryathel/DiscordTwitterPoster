@@ -1,9 +1,9 @@
 # Here is where you put your bot token.
-TOKEN: NTE2NDkzNzM3NTg1NjcyMTkz.XPnT4w.sJT4UjvNJKXRPHrvxt77lCzvpMc
+TOKEN: YOUR_TOKEN
 
 # A list of channels that log messages will be sent to.
 Log Channels:
-  - 586377523051495427
+  - 0000000000000000
   # Un-comment the line below (remove the '#') and set the id here to add another channel.
   #- 000000000000000000
 
@@ -29,14 +29,14 @@ Prefix: '!'
 # You must add developer authentication to your Twitter before
 # you can access this: https://developer.twitter.com/
 Twitter Info:
-  API Key: vdFCtzYTkFCdtyhovFMywk6Ot
-  API Secret: LJRWJfnZPaxGObBq3MOnYkt3BLL8UgfmeY961mxrWtg1ywvbWZ
-  Access Token: 1042871819059916800-wIOAB1L7SpRuTpbMAzRgUcEnR4UPyp
-  Access Secret: 1CGQBJUNyrIBlRwtpQyk79M4aiqbdRVWSAOAUC1YCDhGD
+  API Key: YOUR_KEY
+  API Secret: YOUR_SECRET
+  Access Token: YOUR_TOKEN
+  Access Secret: YOUR_ACCESS_SECRET
 
   # Post a list of channel IDs you want to have all images posted from here.
   Success Channel IDs:
-    - 586445115892170772
+    - 0000000000000000
     #- 0000000000000000 # Uncomment the '#' at the beginning of the line to add another channel.
 
   # This is where you set the message to get posted along with the image.
@@ -58,7 +58,7 @@ Options:
 
   # This will show the author at the top of the message as the person tho used the command.
   # Works well in combination with 'Delete Commands'
-  Show Author: true
+  Show Author: false
 
   # Sets the 'Playing' status of the bot.
   Game Status:
