@@ -6,7 +6,7 @@ This Discord.py bot will take channels in Discord and post the images sent there
 
 # Direct Support
 For more support, join me in my Discord server:
-- [Hero's Bot Hub](https://discord.gg/Fr3PpFr)
+- [Hero's Bot Hub](https://discord.gg/jjkvPb9)
 
 Or message me on Discord at:
 - Heroicos_HM#0310
