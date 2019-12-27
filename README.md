@@ -9,7 +9,7 @@ File "C:\Users\User\AppData\Local\Programs\Python\Python37\lib\site-packages\twe
                          ^
 SyntaxError: invalid syntax
 ```
-That is an issue with the Python twitter api wrapper not liking how it was written. You will need to go into the folder listed in the error and replace the current `streaming.py` file with the `streaming.py` file in this repository. Message me on DIscord if you have issues.
+That is an issue with the Python twitter api wrapper not liking how it was written. You will need to go into the folder listed in the error and replace the current `streaming.py` file with the `streaming.py` file in this repository. Message me on Discord if you have issues.
 
 # Setup Tutorial
 - [Part 1](https://www.youtube.com/watch?v=HHj9wrnijv4)
