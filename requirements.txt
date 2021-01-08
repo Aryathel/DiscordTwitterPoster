@@ -1,3 +1,5 @@
 tweepy
 discord.py
+chardet==3.0.4
+aiohttp==3.6.0
 PyYAML
